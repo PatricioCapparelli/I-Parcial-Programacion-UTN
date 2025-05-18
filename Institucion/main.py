@@ -5,27 +5,31 @@ from utilidades.ordenar_estudiantes import mostrar_datos_ordenados
 from utilidades.mayor_promedio_materias import mostrar_materias_mayor_promedio
 
 
-# calificaciones = inicializar_matriz(3, 5, 0)
+calificaciones = inicializar_matriz(3, 5, 0)
 
-# nombres = [''] * 3
-# generos = [''] * 3
-# legajos = [0] * 3
+nombres = [''] * 3
+generos = [''] * 3
+legajos = [0] * 3
+promedios = [0] * 3
 
 ################### HC
 
-nombres = ["Ana", "Bruno", "Carla"]
-generos = ["F", "M", "F"]
-legajos = [12345, 23456, 34567]
-promedios = [1.9, 2.5, 4.6]
-calificaciones = [
-    [8, 7, 2, 10, 8],   # Ana
-    [8, 6, 3, 2, 8],    # Bruno
-    [10, 9, 4, 9, 10]  # Carla
-]
+# nombres = ["Ana", "Bruno", "Carla"]
+# generos = ["F", "M", "F"]
+# legajos = [12345, 23456, 34567]
+# promedios = [1.9, 2.5, 4.6]
+# calificaciones = [
+#     [8, 7, 2, 10, 8],   # Ana
+#     [8, 6, 3, 2, 8],    # Bruno
+#     [10, 9, 4, 9, 10]  # Carla
+# ]
 
 ################### HC
 
 def mostrar_menu():
+    datos_cargados = False
+    mensaje_error = "\nError: Primero debe cargar los datos. (Seleccione la opcion 1)."
+
     while True:
         print("\nMENU PRINCIPAL")
         print("1 - Cargar datos de estudiantes.")
@@ -35,24 +39,42 @@ def mostrar_menu():
         print("5 - Mostrar materia/s con mayor promedio.")
         print("6 - Buscar estudiante por legajo.")
         print("7 - Salir")
-        opcion = input("Seleccione opción: ")
+        opcion = input("Seleccione opcion: ")
 
         match opcion:
             case '1':
-                cargar_datos(nombres,generos,legajos,calificaciones)
+                cargar_datos(nombres, generos, legajos, calificaciones)
+                datos_cargados = True
             case '2':
-                imprimir_datos(nombres, generos, legajos, calificaciones)
+                if datos_cargados:
+                    imprimir_datos(nombres, generos, legajos, calificaciones)
+                else:
+                    print(mensaje_error)
             case '3':
-                ver_promedios_de_estudiantes(calificaciones)
+                if datos_cargados:
+                    ver_promedios_de_estudiantes(calificaciones)
+                else:
+                    print(mensaje_error)
             case '4':
-                mostrar_datos_ordenados(nombres, generos, legajos, promedios, calificaciones, orden=2)
+                if datos_cargados:
+                    mostrar_datos_ordenados(nombres, generos, legajos, promedios, calificaciones, orden=2)
+                else:
+                    print(mensaje_error)
             case '5':
-                mostrar_materias_mayor_promedio(calificaciones)
+                if datos_cargados:
+                    mostrar_materias_mayor_promedio(calificaciones)
+                else:
+                    print(mensaje_error)
             case '6':
-                encontrar_dato(nombres, generos, legajos, calificaciones)
+                if datos_cargados:
+                    encontrar_dato(nombres, generos, legajos, calificaciones)
+                else:
+                    print(mensaje_error)
+
             case '7':
                 print("Saliendo del programa...")
                 break
+
             case _:
                 print("Opcion invalida. Intente nuevamente.")
 

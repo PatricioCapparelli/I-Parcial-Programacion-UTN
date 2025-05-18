@@ -1,3 +1,5 @@
+from validaciones.validar_datos import *
+
 def inicializar_matriz(cantidad_filas:int, cantidad_columnas:int, valor_inicial:any) -> list:
     matriz = []
     for i in range(cantidad_filas):
@@ -36,24 +38,3 @@ def cargar_datos(nombres, generos, legajos, calificaciones):
                     break
                 print("Error: La calificacion debe estar entre 1 y 10, debe ser de caracter numerico.")
 
-def validar_calificacion(nota:int):
-    """Valida que la calificacion este entre 1 y 10"""
-    valido = False
-    
-    nota = int(nota)
-    if nota >= 1 and nota <= 10:
-        valido = True
-    
-    return valido
-
-def validar_genero(genero): #validar
-    """Valida que el genero sea F, M o X"""
-    return genero == 'F' or genero == 'M' or genero == 'X'
-
-def validar_legajo(legajo): #validar
-    """Valida que el legajo sea un entero de 5 dígitos"""
-    try:
-        legajo = int(legajo)
-        return legajo >= 10000 and legajo <= 99999
-    except:
-        return False

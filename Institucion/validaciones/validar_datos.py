@@ -15,12 +15,24 @@ def pedir_cadena_texto() -> str:
     return cadena
 
 # testeadas
-def validar_calificacion(cadena: str) -> bool:
-    valor = False
-    if len(cadena) == 1 and (ord(cadena) >= 49 and ord(cadena) <= 57):
-        valor = True
+def validar_calificacion(nota:int):
+    """Valida que la calificacion este entre 1 y 10"""
+    valido = False
+    
+    nota = int(nota)
+    if nota >= 1 and nota <= 10:
+        valido = True
+    
+    return valido
 
-    elif len(cadena) == 2 and cadena[0] == 49 and cadena[1] == 48:
-        valor = True
-    return valor
+def validar_genero(genero): #validar
+    """Valida que el genero sea F, M o X"""
+    return genero == 'F' or genero == 'M' or genero == 'X'
 
+def validar_legajo(legajo): #validar
+    """Valida que el legajo sea un entero de 5 dígitos"""
+    try:
+        legajo = int(legajo)
+        return legajo >= 10000 and legajo <= 99999
+    except:
+        return False

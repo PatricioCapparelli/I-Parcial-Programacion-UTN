@@ -7,10 +7,11 @@ def imprimir_dato(nombre: str, genero: str, legajo: int, calificaciones: list) -
 
 
 def buscar_datos(legajo_buscado: int, legajos: list) -> int:
+    legajo_encontrado = -1
     for index in range(len(legajos)):
         if legajos[index] == legajo_buscado:
-            return index
-    return -1  # no encontrado
+            legajo_encontrado = index
+    return legajo_encontrado 
 
 def encontrar_dato(nombres: list, generos: list, legajos: list, calificaciones: list) -> None:
     while True:
