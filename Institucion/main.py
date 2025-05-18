@@ -1,0 +1,61 @@
+from datos.carga_de_datos import inicializar_matriz, cargar_datos
+from datos.mostrar_los_datos import imprimir_datos, encontrar_dato
+from utilidades.calcular_promedio import ver_promedios_de_estudiantes
+from utilidades.ordenar_estudiantes import mostrar_datos_ordenados
+from utilidades.mayor_promedio_materias import mostrar_materias_mayor_promedio
+
+
+# calificaciones = inicializar_matriz(3, 5, 0)
+
+# nombres = [''] * 3
+# generos = [''] * 3
+# legajos = [0] * 3
+
+################### HC
+
+nombres = ["Ana", "Bruno", "Carla"]
+generos = ["F", "M", "F"]
+legajos = [12345, 23456, 34567]
+promedios = [1.9, 2.5, 4.6]
+calificaciones = [
+    [8, 7, 2, 10, 8],   # Ana
+    [8, 6, 3, 2, 8],    # Bruno
+    [10, 9, 4, 9, 10]  # Carla
+]
+
+################### HC
+
+def mostrar_menu():
+    while True:
+        print("\nMENU PRINCIPAL")
+        print("1 - Cargar datos de estudiantes.")
+        print("2 - Mostrar todos los datos.")
+        print("3 - Ver promedios de estudiantes.")
+        print("4 - Mostrar datos ordenados por promedio del estudiante.")
+        print("5 - Mostrar materia/s con mayor promedio.")
+        print("6 - Buscar estudiante por legajo.")
+        print("7 - Salir")
+        opcion = input("Seleccione opción: ")
+
+        match opcion:
+            case '1':
+                cargar_datos(nombres,generos,legajos,calificaciones)
+            case '2':
+                imprimir_datos(nombres, generos, legajos, calificaciones)
+            case '3':
+                ver_promedios_de_estudiantes(calificaciones)
+            case '4':
+                mostrar_datos_ordenados(nombres, generos, legajos, promedios, calificaciones, orden=2)
+            case '5':
+                mostrar_materias_mayor_promedio(calificaciones)
+            case '6':
+                encontrar_dato(nombres, generos, legajos, calificaciones)
+            case '7':
+                print("Saliendo del programa...")
+                break
+            case _:
+                print("Opcion invalida. Intente nuevamente.")
+
+mostrar_menu()
+
+
