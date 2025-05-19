@@ -1,7 +1,16 @@
-def ordenar(nombres: list, generos: list, legajos: list, promedios: list, calificaciones: list, orden: int = 2) -> None:
+def ordenar(nombres:list, generos:list, legajos:list, promedios:list, calificaciones:list, orden:int=2) -> None:
+    """Ordena los datos de los estudiantes segun su promedio.
+
+    Args:
+        nombres (list): Lista de nombres de estudiantes.
+        generos (list): Lista de generos de estudiantes.
+        legajos (list): Lista de legajos de estudiantes.
+        promedios (list): Lista de promedios de estudiantes.
+        calificaciones (list): Matriz de calificaciones por estudiante.
+        orden (int): Tipo de orden (1=ASC/2=DESC).
+    """
     for i in range(len(nombres) - 1):
         for j in range(i + 1, len(nombres)):
-            # Condicion para ordenar asc o desc segun 'orden' (1=asc, 2=desc)
             if (orden == 1 and promedios[i] > promedios[j]) or (orden == 2 and promedios[i] < promedios[j]):
                 
                 aux_genero = generos[i]
@@ -24,8 +33,21 @@ def ordenar(nombres: list, generos: list, legajos: list, promedios: list, califi
                 calificaciones[i] = calificaciones[j]
                 calificaciones[j] = aux_calif
 
-def mostrar_datos_ordenados(nombres: list, generos: list, legajos: list, promedios: list, calificaciones: list, orden: int = 2) -> None:
+def mostrar_datos_ordenados(nombres:list, generos:list, legajos:list, promedios:list, calificaciones:list, orden:int=2) -> None:
+    """Ordena y muestra los datos de los estudiantes segun su promedio.
+
+    Args:
+        nombres (list): Lista de nombres de estudiantes.
+        generos (list): Lista de generos de estudiantes.
+        legajos (list): Lista de legajos de estudiantes.
+        promedios (list): Lista de promedios de estudiantes.
+        calificaciones (list): Matriz de calificaciones por estudiante.
+        orden (int): Tipo de orden (ASC/DESC).
+    """
     ordenar(nombres, generos, legajos, promedios, calificaciones, orden)
     print("NOMBRE\t\tGENERO\tLEGAJO\tPROMEDIO\tCALIFICACIONES")
     for i in range(len(nombres)):
-        print(f"{nombres[i]}\t\t{generos[i]}\t{legajos[i]}\t{promedios[i]}\t\t{calificaciones[i]}")
+        if len(nombres[i]) > 7:
+            print(f"{nombres[i]}\t{generos[i]}\t{legajos[i]}\t{promedios[i]}\t\t{calificaciones[i]}")
+        else:
+            print(f"{nombres[i]}\t\t{generos[i]}\t{legajos[i]}\t{promedios[i]}\t\t{calificaciones[i]}")
