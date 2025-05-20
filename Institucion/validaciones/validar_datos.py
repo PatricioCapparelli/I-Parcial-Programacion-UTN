@@ -53,23 +53,25 @@ def validar_legajo(dato: str, longitud: int) -> bool:
         bool: True si el legajo es valido, False si tiene errores.
     """
     valor = True
-    errores = [""] * 3
+    largo = len(dato)
     
-    if len(dato) != longitud:
-        errores[0] = f"Error: la cadena debe tener exactamente {longitud} caracteres. (Ingresaste {len(dato)})"
+    if largo == 0:
+        print("Error: El legajo esta vacio.")
         valor = False
 
-    if validar_numero_legajo(dato) == False:
-        errores[1] = "Error: el legajo debe contener solo caracteres numericos."
+    if largo != longitud:
+        print(f"Error: El legajo debe tener exactamente {longitud} caracteres, ingresaste: {largo}")
         valor = False
 
-    if ord(dato[0]) == 48:
-        errores[2] = "Error: el legajo no puede comenzar con 0."
-        valor = False
+    if valor:
+        if validar_numero_legajo(dato) == False:
+            print(f"Error: El legajo debe ser de caracter numerico.")
+            valor = False
 
-    for i in range(len(errores)):
-        if errores[i] != "":
-            print(errores[i])
+    if valor and largo > 0:
+        if ord(dato[0]) == 48 or ord(dato[0]) == 32:
+            print(f"Error: El legajo '{dato}' empieza con un 0 o un espacio.")
+            valor = False
 
     return valor
 
