@@ -72,10 +72,8 @@ while True:
                 encontrar_legajos(nombres, generos, legajos, promedios, calificaciones)
             else:
                 print(mensaje_error)
-
         case '7':
             print("Saliendo del programa...")
             break
-
         case _:
             print("Opcion invalida. Intente nuevamente.")
