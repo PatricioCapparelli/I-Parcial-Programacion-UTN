@@ -59,7 +59,7 @@ while True:
                 print(mensaje_error)
         case '4':
             if datos_cargados and promedios != None:
-                mostrar_datos_ordenados(nombres, generos, legajos, promedios, calificaciones, orden=1)
+                mostrar_datos_ordenados(nombres, generos, legajos, promedios, calificaciones, orden=2)
             else:
                 print(mensaje_error)
         case '5':

@@ -51,7 +51,7 @@ def encontrar_legajos(nombres: list, generos: list, legajos: list, promedios:lis
         legajos(list): Lista de legajos
         calificaciones(list): Lista de calificaciones
     """
-    legajo_ingresado = int(input("Ingrese el número de legajo a buscar: "))
+    legajo_ingresado = int(input("Ingrese el numero de legajo a buscar: "))
     encontrados = 0
 
     print("\nNOMBRE\t\tGENERO\tLEGAJO\tPROMEDIO\tCALIFICACIONES")
