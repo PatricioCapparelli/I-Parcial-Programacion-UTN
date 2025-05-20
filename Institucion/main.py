@@ -21,15 +21,14 @@ legajos = crear_lista(3, 0)
 # legajos = [12345, 12345, 34567]
 # calificaciones = [
 #     [10, 10, 10, 10, 9],   
-#     [10, 8, 8, 9, 10],    
+#     [10, 10, 8, 9, 10],    
 #     [10, 10, 10, 10, 10]  
 # ]
 
 ################### HC
 
-
-datos_cargados = False
-# datos_cargados = True
+# datos_cargados = False
+datos_cargados = True
 promedios = None
 mensaje_error = "\nError: Primero debe cargar los datos. Seleccione la opcion 1 para ingresar todos los datos de los estudiantes. \ningrese 3 para calcular promedio (Luego de haber ingresado los datos de la orpcion 1)."
 
@@ -60,7 +59,7 @@ while True:
                 print(mensaje_error)
         case '4':
             if datos_cargados and promedios != None:
-                mostrar_datos_ordenados(nombres, generos, legajos, promedios, calificaciones, orden=2)
+                mostrar_datos_ordenados(nombres, generos, legajos, promedios, calificaciones, orden=1)
             else:
                 print(mensaje_error)
         case '5':
