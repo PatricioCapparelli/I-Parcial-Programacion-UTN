@@ -1,4 +1,5 @@
-from validaciones.validar_datos import *
+from validaciones.validar_legajos import validar_legajo
+from validaciones.validar_datos_cargados.validar_entradas import validar_genero,validar_nombre,validar_numero
 
 def inicializar_matriz(cantidad_filas:int, cantidad_columnas:int, valor_inicial:any) -> list:
     """Crea una matriz con los mismos datos.
@@ -51,7 +52,7 @@ def cargar_datos(nombres, generos, legajos, calificaciones):
             if validar_nombre(nombre):
                 nombres[i] = nombre
                 break
-            print("Error: El nombre debe contener solo letras, mas de 2 caracteres y sin espacios.")
+            print("Error: El nombre debe tener solo letras, mas de 2 caracteres , menos de 16 y sin espacios.")
 
         while True:
             generos[i] = input("Genero (F/M/X): ")
