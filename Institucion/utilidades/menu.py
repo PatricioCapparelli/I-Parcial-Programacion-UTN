@@ -1,7 +1,13 @@
 from validaciones.validar_con_ascii import comparar_numero_con_ascii
 
 def menu(cadena: str) -> int:
-    '''Muestra el menu y valida que se seleccione una opcion valida.'''
+    '''Muestra el menu y valida que se seleccion sea valida.
+
+    Args:
+        cadena (str): opcion ingresada.
+    Returns:
+        int: opcion numerica valida.
+    '''
     valido = False
     print(cadena)
     opcion = input("Seleccione opcion: ")

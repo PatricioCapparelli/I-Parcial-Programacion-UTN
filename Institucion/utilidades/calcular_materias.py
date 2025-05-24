@@ -1,3 +1,5 @@
+from datos.carga_de_datos import crear_lista
+
 def calcular_promedios(calificaciones: list) -> list:
     """Calcula el promedio de calificaciones por estudiante.
     
@@ -7,7 +9,7 @@ def calcular_promedios(calificaciones: list) -> list:
     Returns:
         list: Lista con el promedio de cada estudiante.
     """
-    promedios = [0] * len(calificaciones)
+    promedios = crear_lista(len(calificaciones), 0)
     for i in range(len(calificaciones)):
         suma = 0
         for j in range(len(calificaciones[i])):
@@ -23,7 +25,7 @@ def ver_promedios_de_estudiantes(calificaciones:list) -> None:
         calificaciones (list): Matriz de calificaciones por estudiante.
     """
     promedios = calcular_promedios(calificaciones)
-    print(promedios)
+    print(f"\nPromedios de estudiantes: \n{promedios}")
     return promedios
 
 
@@ -38,7 +40,7 @@ def calcular_promedios_por_materia(calificaciones: list) -> list:
     """
     cantidad_materias = len(calificaciones[0])
     cantidad_estudiantes = len(calificaciones)
-    promedios_materias = [0] * cantidad_materias
+    promedios_materias = crear_lista(cantidad_materias, 0)
 
     for i in range(cantidad_materias):  # recorre columnas (materias)
         suma = 0
@@ -48,3 +50,29 @@ def calcular_promedios_por_materia(calificaciones: list) -> list:
         promedios_materias[i] = promedio
     
     return promedios_materias
+
+
+def calcular_calificaciones_repetidas(calificaciones: list, n_de_materia: int) -> list:
+    """Calcula las repeticiones de las calificaciones en una determinada asignatura.
+    
+    Args:
+        calificaciones (list): Matriz de calificaciones donde cada fila es un estudiante y cada columna una materia.
+        n_de_materia (int): posicion de la materia.
+        
+    Returns:
+        list: Lista del 1 al 10 con la suma de las repeticiones que se encontraron en una asignatura.
+    """
+    repetidas = crear_lista(10, 0)
+    indice_materia = n_de_materia - 1
+    print("\nNotas repetidas: ")
+    for estudiante in calificaciones:
+        nota = estudiante[indice_materia]
+        if 1 <= nota and nota <= 10:
+            indice_nota = nota - 1
+            repetidas[indice_nota] += 1 
+    print(repetidas)
+    
+    return repetidas
+
+
+

@@ -1,4 +1,6 @@
-def ordenar(nombres:list, generos:list, legajos:list, promedios:list, calificaciones:list, orden:int=2) -> None:
+from utilidades.impresiones.imprimir_datos import mostrar_estudiantes_con_promedio
+
+def ordenar(nombres:list, generos:list, legajos:list, promedios:list, calificaciones:list, orden:int = 2) -> None:
     """Ordena los datos de los estudiantes segun su promedio.
 
     Args:
@@ -33,21 +35,21 @@ def ordenar(nombres:list, generos:list, legajos:list, promedios:list, calificaci
                 calificaciones[i] = calificaciones[j]
                 calificaciones[j] = aux_calif
 
-def mostrar_datos_ordenados(nombres:list, generos:list, legajos:list, promedios:list, calificaciones:list, orden:int=2) -> None:
-    """Ordena y muestra los datos de los estudiantes segun su promedio.
+def mostrar_datos_ordenados(nombres:list, generos:list, legajos:list, promedios:list, calificaciones:list, orden:int = 2) -> None:
+    """Ordena y muestra los datos de los estudiantes según su promedio.
 
     Args:
         nombres (list): Lista de nombres de estudiantes.
-        generos (list): Lista de generos de estudiantes.
+        generos (list): Lista de géneros de estudiantes.
         legajos (list): Lista de legajos de estudiantes.
         promedios (list): Lista de promedios de estudiantes.
         calificaciones (list): Matriz de calificaciones por estudiante.
         orden (int): Tipo de orden (ASC/DESC).
     """
     ordenar(nombres, generos, legajos, promedios, calificaciones, orden)
-    print("NOMBRE\t\tGENERO\tLEGAJO\tPROMEDIO\tCALIFICACIONES")
+    
+    print("\nNOMBRE\t\tGENERO\tLEGAJO\tPROMEDIO\tCALIFICACIONES")
+    
     for i in range(len(nombres)):
-        if len(nombres[i]) > 7:
-            print(f"{nombres[i]}\t{generos[i]}\t{legajos[i]}\t{promedios[i]}\t\t{calificaciones[i]}")
-        else:
-            print(f"{nombres[i]}\t\t{generos[i]}\t{legajos[i]}\t{promedios[i]}\t\t{calificaciones[i]}")
+        mostrar_estudiantes_con_promedio(nombres[i], generos[i], legajos[i], promedios[i], calificaciones[i])
+

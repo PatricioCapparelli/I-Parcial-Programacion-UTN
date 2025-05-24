@@ -1,12 +1,19 @@
 def mostrar_estudiantes_con_promedio(nombres: str, genero: str, legajo: int, promedio: float, calificaciones: list) -> None:
-    """Imprime los datos de un estudiante en formato tabular."""
+    """Muestra los datos de estudiantes con promedio, en formato de tabla dependiendo de sus indices.
+    
+    Args:
+        nombres(list): Lista de nombres
+        generos(list): Lista de generos
+        legajos(list): Lista de legajos 
+        calificaciones(list): Lista de listas con notas
+    """
     if len(nombres) > 7:
         print(f"{nombres}\t{genero}\t{legajo}\t{promedio}\t\t{calificaciones}")
     else:
         print(f"{nombres}\t\t{genero}\t{legajo}\t{promedio}\t\t{calificaciones}")
 
 def imprimir_estudiantes_sin_promedio(nombres, generos, legajos, calificaciones):
-    """Muestra los datos de estudiantes en formato de tabla dependiendo de sus indices.
+    """Muestra los datos de estudiantes sin promedio, en formato de tabla y dependiendo de sus indices.
     
     Args:
         nombres(list): Lista de nombres
