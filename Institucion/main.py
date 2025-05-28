@@ -6,27 +6,28 @@ from utilidades.calcular_materias import ver_promedios_de_estudiantes,calcular_c
 from utilidades.ordenar_estudiantes import mostrar_datos_ordenados
 from utilidades.menu import menu
 
-# calificaciones = inicializar_matriz(3, 5, 0)
-# nombres = crear_lista(3, "")
-# generos = crear_lista(3, "")
-# legajos = crear_lista(3, 0)
+calificaciones = inicializar_matriz(30, 5, 0)
+nombres = crear_lista(30, "")
+generos = crear_lista(30, "")
+legajos = crear_lista(30, 0)
 
 ################### HC
 
-nombres = ["Lucia", "Bruno", "fransiscooooooo"]
-generos = ["F", "M", "X"]
-legajos = [12345, 12345, 34567]
-promedios = [0] * 3
-calificaciones = [
-    [5, 5, 10, 10, 1],   
-    [1, 6, 9, 9, 7],    
-    [5, 3, 6, 6, 7]  
-]
+# nombres = ["Lucia", "Bruno", "fransiscooooooo"]
+# generos = ["F", "M", "X"]
+# legajos = [12345, 12345, 34567]
+# promedios = [0] * 3
+# calificaciones = [
+#     [5, 5, 10, 10, 1],   
+#     [1, 6, 9, 9, 7],    
+#     [5, 3, 6, 6, 7]  
+# ]
 
+# datos_cargados = True
 ################### HC
 
-# datos_cargados = False
-datos_cargados = True
+
+datos_cargados = False
 promedios = None
 mensaje_error = "\nError: Primero debe cargar los datos. Seleccione la opcion 1 para ingresar todos los datos de los estudiantes. \ningrese 3 para calcular promedio (Luego de haber ingresado los datos de la orpcion 1)."
 
