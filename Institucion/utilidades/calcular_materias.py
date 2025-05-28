@@ -1,4 +1,5 @@
 from datos.carga_de_datos import crear_lista
+from validaciones.validar_con_ascii import comparar_numero_con_ascii
 
 def calcular_promedios(calificaciones: list) -> list:
     """Calcula el promedio de calificaciones por estudiante.
@@ -63,8 +64,17 @@ def calcular_calificaciones_repetidas(calificaciones: list, n_de_materia: int) -
         list: Lista del 1 al 10 con la suma de las repeticiones que se encontraron en una asignatura.
     """
     repetidas = crear_lista(10, 0)
+    valido = False
+
+    while valido == False:
+        if comparar_numero_con_ascii(n_de_materia, 1, 49, 53):
+            n_de_materia = int(n_de_materia)
+            valido = True
+        else:
+            n_de_materia = input("Error: Seleccione opcion valida (1-5): ")
     indice_materia = n_de_materia - 1
     print("\nNotas repetidas: ")
+    
     for estudiante in calificaciones:
         nota = estudiante[indice_materia]
         if 1 <= nota and nota <= 10:

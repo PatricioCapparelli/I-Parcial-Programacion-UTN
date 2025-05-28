@@ -64,7 +64,7 @@ while True:
                 print(mensaje_error)
         case 7:
             if datos_cargados:
-                calcular_calificaciones_repetidas(calificaciones,5)
+                calcular_calificaciones_repetidas(calificaciones,6)
             else:
                 print(mensaje_error)
         case 8:
