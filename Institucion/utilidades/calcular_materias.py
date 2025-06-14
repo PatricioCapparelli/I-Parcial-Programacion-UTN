@@ -20,7 +20,7 @@ def calcular_promedios(calificaciones: list) -> list:
         promedios[i] = promedio
     return promedios
 
-def ver_promedios_de_estudiantes(calificaciones:list) -> None:
+def ver_promedios_de_estudiantes(calificaciones:list) -> list:
     """Muestra los promedios de todos los estudiantes.
     
     Args:
@@ -44,9 +44,9 @@ def calcular_promedios_por_materia(calificaciones: list) -> list:
     cantidad_estudiantes = len(calificaciones)
     promedios_materias = crear_lista(cantidad_materias, 0)
 
-    for i in range(cantidad_materias):  # recorre columnas (materias)
+    for i in range(cantidad_materias):
         suma = 0
-        for j in range(cantidad_estudiantes):  # recorre filas (estudiantes)
+        for j in range(cantidad_estudiantes):
             suma += calificaciones[j][i]
         promedio = suma / cantidad_estudiantes
         promedios_materias[i] = promedio
@@ -77,6 +77,7 @@ def calcular_calificaciones_repetidas(calificaciones: list, n_de_materia: int) -
     print(repetidas)
     
     return repetidas
+
 
 
 

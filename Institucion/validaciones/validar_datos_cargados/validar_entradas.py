@@ -46,7 +46,7 @@ def validar_genero(genero: str) -> bool:
 
 
 def validar_nombre(cadena:str) -> bool:
-    """Valida que una cadena sea un nombre valido (solo letras y al menos 3 caracteres).
+    """Valida que una cadena sea un nombre valido (solo letras , al menos 3 caracteres y maximo 15).
 
     Args:
         cadena (str): Cadena de texto que representa un nombre.

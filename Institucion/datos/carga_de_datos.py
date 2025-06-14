@@ -29,7 +29,6 @@ def crear_lista(cantidad: int, valor_inicial:any):
         list:Lista. 
     """
     lista = [valor_inicial] * cantidad
-
     return lista
 
 def cargar_datos(nombres, generos, legajos, calificaciones):
